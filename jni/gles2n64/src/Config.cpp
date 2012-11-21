@@ -96,7 +96,7 @@ Option configOptions[] =
     {"", NULL, 0},
 
     {"#Frame skip:", NULL, 0},
-    {"auto frameskip", &config.autoFrameSkip, 0},
+    {"auto frameskip", &config.autoFrameSkip, 1},
     {"target FPS", &config.targetFPS, 20},
     {"frame render rate", &config.frameRenderRate, 1},
     {"vertical sync", &config.verticalSync, 0},
@@ -105,7 +105,7 @@ Option configOptions[] =
     {"#Other Settings:", NULL, 0},
     {"update mode", &config.updateMode, SCREEN_UPDATE_AT_VI_UPDATE },
     {"ignore offscreen rendering", &config.ignoreOffscreenRendering, 0},
-    {"force screen clear", &config.forceBufferClear, 0},
+    {"force screen clear", &config.forceBufferClear, 1},
     {"flip vertical", &config.screen.flipVertical, 0},
 // paulscode: removed from pre-compile to a config option
 //// (part of the Galaxy S Zelda crash-fix
@@ -117,7 +117,7 @@ Option configOptions[] =
     {"hack banjo tooie", &config.hackBanjoTooie, 0},
     {"hack zelda", &config.hackZelda, 0},
     {"hack alpha", &config.hackAlpha, 0},
-    {"hack z", &config.zHack, 0},
+    {"hack z", &config.zHack, 1},
 
 };
 

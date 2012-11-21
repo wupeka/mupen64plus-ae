@@ -46,7 +46,7 @@ class Globals
     public static boolean InhibitSuspend = true;
 
     public static boolean volumeKeysDisabled = false;
-    public static boolean screen_stretch = false;
+    public static boolean screen_stretch = true;
     public static boolean auto_frameskip = true;
     public static int max_frameskip = 2;
     public static boolean auto_save = true;

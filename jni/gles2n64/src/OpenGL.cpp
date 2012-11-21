@@ -338,16 +338,36 @@ else
             videoHeight = (int) ( videoInfo->current_w * ratio );
         }
     }
-    int x = ( videoInfo->current_w - videoWidth ) / 2;
-    int y = ( videoInfo->current_h - videoHeight ) / 2;
-    config.window.xpos = x;
-    config.window.ypos = y;
-    config.window.width = videoWidth;
-    config.window.height = videoHeight;
-    config.framebuffer.xpos = x;
-    config.framebuffer.ypos = y;
-    config.framebuffer.width = videoWidth;
-    config.framebuffer.height = videoHeight;
+	
+	if((config.window.xpos==0) && (config.window.ypos==0))
+	{
+		int x = ( videoInfo->current_w - videoWidth ) / 2;
+		int y = ( videoInfo->current_h - videoHeight ) / 2;
+		config.window.xpos = x;
+		config.window.ypos = y;
+		config.framebuffer.xpos = x;
+		config.framebuffer.ypos = y;
+		
+		config.window.width = videoWidth;
+		config.window.height = videoHeight;
+
+		config.framebuffer.width = videoWidth;
+		config.framebuffer.height = videoHeight;
+	}
+	else //Remove Black Border
+	{
+		int x = (videoWidth * config.window.xpos)/100;
+		int y = (videoHeight * config.window.ypos)/100;
+		
+		config.framebuffer.xpos = x;
+		config.framebuffer.ypos = y;
+		
+		config.window.width = videoWidth - 2*x;
+		config.window.height = videoHeight - 2*y;
+
+		config.framebuffer.width = videoWidth - 2*x;
+		config.framebuffer.height = videoHeight - 2*y;
+	}
 ////
     return true;
 }

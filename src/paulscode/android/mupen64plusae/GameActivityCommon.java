@@ -524,6 +524,7 @@ public class GameActivityCommon
                 Globals.hardwareType = Globals.HARDWARE_TYPE_IMAP;
             else if( ( hardware != null && (hardware.contains( "tegra 2" )  ||
                                             hardware.contains( "grouper" )  ||
+											hardware.contains( "smdk4x12" ) ||
                                             hardware.contains( "meson-m1" ) ||
                                             hardware.contains( "smdkc" )) ) ||
                      ( features != null && features.contains( "vfpv3d16" )) )

@@ -20,6 +20,14 @@
         android:summary="@string/gamepad_analg_as_octgon"
         android:title="@string/gamepad_accurate_n64_stick" />
     
+	<ListPreference
+		android:defaultValue="0"
+		android:entries="@array/gamepad_analog_speed_list"
+		android:entryValues="@array/gamepad_analog_speed_value"
+		android:key="menuSettingsVideoAnalogSpeed"
+		android:summary="@string/gamepad_analog_refresh_rate"
+		android:title="@string/gamepad_analog_speed" />
+
     <CheckBoxPreference
         android:defaultValue="false"
         android:key="menuSkinsGamepadFPS"

@@ -8,7 +8,9 @@ import java.io.InputStreamReader;
 import android.content.Intent;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
+import android.preference.ListPreference;
 import android.preference.Preference;
+import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.Preference.OnPreferenceClickListener;
 import android.preference.PreferenceActivity;
 import android.util.Log;
@@ -20,6 +22,7 @@ public class MenuSkinsGamepadActivity extends PreferenceActivity implements IOpt
     public static String chosenGamepad = "";
     public static boolean redrawAll = true;
     public static boolean analogAsOctagon = true;
+	public static int analog_speed = 0;
     public static boolean showFPS = false;
     public static boolean enabled = true;
 
@@ -102,7 +105,18 @@ public class MenuSkinsGamepadActivity extends PreferenceActivity implements IOpt
                 return true;
             }
         });
-        
+		
+		// Analog Speed
+        final ListPreference settingsGamepadAnalogSpeed = (ListPreference) findPreference( "menuSettingsVideoAnalogSpeed" );
+        settingsGamepadAnalogSpeed.setOnPreferenceChangeListener( new OnPreferenceChangeListener() {
+            
+            public boolean onPreferenceChange( Preference preference, Object newValue )
+            {   
+                analog_speed = Integer.parseInt( String.valueOf( newValue ) );
+                MenuActivity.gui_cfg.put( "GAME_PAD", "analog_speed", String.valueOf( newValue ) );
+                return true;
+            }
+        });
         
         // Display FPS Setting
         final CheckBoxPreference settingsGamepadFPS = (CheckBoxPreference) findPreference( "menuSkinsGamepadFPS" );

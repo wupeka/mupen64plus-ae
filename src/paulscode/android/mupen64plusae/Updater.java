@@ -241,10 +241,12 @@ class Updater
         MenuActivity.gui_cfg.put( "GENERAL", "upgraded_1.9", "1" );
         MenuActivity.gui_cfg.put( "GAME_PAD", "redraw_all", "1" );
         MenuActivity.gui_cfg.put( "GAME_PAD", "analog_octagon", "1" );
+		MenuActivity.gui_cfg.put( "GAME_PAD", "analog_speed", "0" );
         MenuActivity.gui_cfg.put( "GAME_PAD", "show_fps", "0" );
         MenuActivity.gui_cfg.put( "GAME_PAD", "enabled", "1" );
         MenuActivity.gui_cfg.put( "VIDEO_PLUGIN", "enabled", "1" );
         MenuActivity.gui_cfg.put( "VIDEO_PLUGIN", "rgba8888", "0" );
+		MenuActivity.gui_cfg.put( "VIDEO_PLUGIN", "reverseLandscape", "0" );
         MenuActivity.gui_cfg.put( "KEYS", "disable_volume_keys", "0" );
         Globals.volumeKeysDisabled = false;
 

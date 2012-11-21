@@ -9,6 +9,7 @@ import android.os.*;
 import android.support.v4.app.*;
 import android.util.Log;
 import android.view.*;
+import android.content.pm.ActivityInfo;
 
 
 /**
@@ -113,6 +114,14 @@ public class GameActivity extends Activity
         String val = MenuActivity.gui_cfg.get( "GAME_PAD", "analog_octagon" );
         if( val != null )
             MenuSkinsGamepadActivity.analogAsOctagon = ( val.equals( "1" ) ? true : false );
+		val = MenuActivity.gui_cfg.get( "GAME_PAD", "analog_speed" );
+        if( val != null )
+		{
+			if(val.equals( "1" ))
+				MenuSkinsGamepadActivity.analog_speed = 1;
+			else if(val.equals( "0" ))
+				MenuSkinsGamepadActivity.analog_speed = 0;
+		}
         val = MenuActivity.gui_cfg.get( "GAME_PAD", "show_fps" );
         if( val != null )
             MenuSkinsGamepadActivity.showFPS = ( val.equals( "1" ) ? true : false );
@@ -123,6 +132,9 @@ public class GameActivity extends Activity
         val = MenuActivity.gui_cfg.get( "VIDEO_PLUGIN", "rgba8888" );
         if( val != null )
             GameActivityCommon.rgba8888 = ( val.equals( "1" ) ? true : false );
+		val = MenuActivity.gui_cfg.get( "VIDEO_PLUGIN", "reverseLandscape" );
+        if( val != null )
+            MenuSettingsVideoActivity.reverselandscape = ( val.equals( "1" ) ? true : false );
          
         // Look up any special codes for the analog controls
         if( Globals.analog_100_64 )
@@ -179,6 +191,10 @@ public class GameActivity extends Activity
             }
         }
 
+		//Reverse Screen Orientation
+		if(MenuSettingsVideoActivity.reverselandscape)
+			setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE);
+			
         if( !MenuSkinsGamepadActivity.enabled )
             GameActivityCommon.mGamePad.loadPad( null );
         else if( MenuSkinsGamepadActivity.chosenGamepad != null && MenuSkinsGamepadActivity.chosenGamepad.length() > 0 )

@@ -1051,7 +1051,17 @@ public class GamePad extends View
         {
             int millis = 100;
             if( MenuSkinsGamepadActivity.redrawAll )
-                millis = 150;
+			{
+				if(MenuSkinsGamepadActivity.analog_speed == 1)
+				{
+					millis = 30;
+				}
+				else
+				{
+					millis = 150;
+				}
+			}
+                
 
             while( alive )
             {  // Shut down by setting alive=false from another thread

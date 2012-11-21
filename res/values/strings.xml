@@ -238,7 +238,9 @@
     <string name="video_configure">Configure</string>
     <string name="video_change_the_settings">Change the settings</string>
     <string name="video_rgba_8888_mode">RGBA_8888 Mode</string>
+	<string name="video_reverse_landscape_mode">Screen Orientation</string>
     <string name="video_improve_gfx_devices">Improves graphics on some devices</string>
+	<string name="video_reverse_screen_orientation">Reverse screen orientation</string>
     <string name="video_enable">Enable</string>
     <string name="video_use_this_plug_in">Use this plug-in</string>
     <string name="video_change">Change</string>
@@ -290,6 +292,18 @@
         <item>4</item>
         <item>5</item>
     </string-array>
+	
+	<!-- Array used to fill the Analog speed ListPreference (do not translate this section) -->
+    <string-array name="gamepad_analog_speed_list">
+        <item>Slow</item>
+        <item>Fast</item>
+    </string-array>
+
+    <!-- Array to hold the values for the Analog speed ListPreference (do not translate this section) -->
+    <string-array name="gamepad_analog_speed_value">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
     
     <!-- Virtual Gamepad -->
     <string name="gamepad_virtual_gamepad">Virtual Gamepad</string>
@@ -299,6 +313,8 @@
     <string name="gamepad_misbut_bug">Slower, fixes missing buttons bug</string>
     <string name="gamepad_accurate_n64_stick">Accurate N64 Stick</string>
     <string name="gamepad_analg_as_octgon">Emulate analog as octagon</string>
+	<string name="gamepad_analog_speed">Analog Speed</string>
+	<string name="gamepad_analog_refresh_rate">Analog stick refresh rate</string>
     <string name="gamepad_display_fps">Display FPS</string>
     <string name="gamepad_shw_frm_sec">Show the frames-per-second</string>
     <string name="gamepad_enable">Enable</string>

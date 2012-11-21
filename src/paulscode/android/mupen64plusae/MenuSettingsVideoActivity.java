@@ -6,6 +6,7 @@ import android.preference.CheckBoxPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceClickListener;
 import android.preference.PreferenceActivity;
+import android.os.*;
 
 // TODO: Comment thoroughly
 public class MenuSettingsVideoActivity extends PreferenceActivity implements IOptionChooser
@@ -13,6 +14,7 @@ public class MenuSettingsVideoActivity extends PreferenceActivity implements IOp
     public static MenuSettingsVideoActivity mInstance = null;
     public static String currentPlugin = "(none)";
     public static boolean rgba8888 = false;
+	public static boolean reverselandscape = false;
 
     @Override
     public void onCreate( Bundle savedInstanceState )
@@ -83,6 +85,26 @@ public class MenuSettingsVideoActivity extends PreferenceActivity implements IOp
                 return true;
             }
         });
+		
+		//Reverse Screen Orientation
+		final CheckBoxPreference settingsVideoReverseLandscape = (CheckBoxPreference) findPreference( "menuSettingsVideoReverseLandscape" );
+		
+		if( Build.VERSION.SDK_INT < Build.VERSION_CODES.GINGERBREAD )
+		{
+			settingsVideoReverseLandscape.setEnabled(false);
+		}
+		else
+		{
+			settingsVideoReverseLandscape.setOnPreferenceClickListener( new OnPreferenceClickListener() {
+				
+				public boolean onPreferenceClick( Preference preference )
+				{
+					reverselandscape = !reverselandscape;
+					MenuActivity.gui_cfg.put( "VIDEO_PLUGIN", "reverseLandscape", (settingsVideoReverseLandscape.isChecked() ? "1" : "0") );
+					return true;
+				}
+			});
+		}
         
         // Enable Plugin Setting
         final CheckBoxPreference settingsVideoEnabled = (CheckBoxPreference) findPreference( "menuSettingsVideoEnabled" );

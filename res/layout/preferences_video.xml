@@ -18,6 +18,12 @@
         android:key="menuSettingsVideoRGBA8888"
         android:summary="@string/video_improve_gfx_devices"
         android:title="@string/video_rgba_8888_mode" />
+		
+	<CheckBoxPreference
+        android:defaultValue="false"
+        android:key="menuSettingsVideoReverseLandscape"
+        android:summary="@string/video_reverse_screen_orientation"
+        android:title="@string/video_reverse_landscape_mode" />
     
     <CheckBoxPreference
         android:defaultValue="true"

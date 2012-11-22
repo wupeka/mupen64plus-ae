@@ -55,7 +55,7 @@ class Updater
                 romFolder = Globals.StorageDir;
             
             MenuActivity.gui_cfg.put( "LAST_SESSION", "rom_folder", romFolder );
-            MenuActivity.gui_cfg.put( "GENERAL", "auto_save", "0" );
+            MenuActivity.gui_cfg.put( "GENERAL", "auto_save", "1" );
             
             File f = new File( Globals.StorageDir );
             if( !f.exists() )

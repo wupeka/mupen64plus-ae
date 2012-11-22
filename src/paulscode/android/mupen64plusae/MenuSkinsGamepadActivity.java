@@ -107,13 +107,27 @@ public class MenuSkinsGamepadActivity extends PreferenceActivity implements IOpt
         });
 		
 		// Analog Speed
-        final ListPreference settingsGamepadAnalogSpeed = (ListPreference) findPreference( "menuSettingsVideoAnalogSpeed" );
+        final ListPreference settingsGamepadAnalogSpeed = (ListPreference) findPreference( "menuSkinsGamepadAnalogSpeed" );
         settingsGamepadAnalogSpeed.setOnPreferenceChangeListener( new OnPreferenceChangeListener() {
             
             public boolean onPreferenceChange( Preference preference, Object newValue )
             {   
                 analog_speed = Integer.parseInt( String.valueOf( newValue ) );
                 MenuActivity.gui_cfg.put( "GAME_PAD", "analog_speed", String.valueOf( newValue ) );
+                return true;
+            }
+        });
+		
+		// Hide controls
+        final Preference settingsGamepadHideControls = findPreference( "menuSkinsGamepadHideControls" );
+        settingsGamepadHideControls.setOnPreferenceClickListener( new OnPreferenceClickListener() {
+            
+            public boolean onPreferenceClick( Preference preference )
+            {
+                // Open the menu to hide controls
+                Intent intent = new Intent( mInstance, MenuSkinsGamepadHideControlsActivity.class );
+                intent.setFlags( Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP );
+                startActivity( intent );
                 return true;
             }
         });

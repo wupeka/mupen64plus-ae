@@ -122,6 +122,21 @@ public class GameActivity extends Activity
 			else if(val.equals( "0" ))
 				MenuSkinsGamepadActivity.analog_speed = 0;
 		}
+		val = MenuActivity.gui_cfg.get( "GAME_PAD", "hideCbuttons" );
+		if( val != null )
+            MenuSkinsGamepadHideControlsActivity.hideCbuttons = ( val.equals( "1" ) ? true : false );
+		val = MenuActivity.gui_cfg.get( "GAME_PAD", "hideABbuttons" );
+		if( val != null )
+            MenuSkinsGamepadHideControlsActivity.hideABbuttons = ( val.equals( "1" ) ? true : false );
+		val = MenuActivity.gui_cfg.get( "GAME_PAD", "hideRbutton" );
+		if( val != null )
+            MenuSkinsGamepadHideControlsActivity.hideRbutton = ( val.equals( "1" ) ? true : false );
+		val = MenuActivity.gui_cfg.get( "GAME_PAD", "hideZbutton" );
+		if( val != null )
+            MenuSkinsGamepadHideControlsActivity.hideZbutton = ( val.equals( "1" ) ? true : false );
+		val = MenuActivity.gui_cfg.get( "GAME_PAD", "hideStartbutton" );
+		if( val != null )
+            MenuSkinsGamepadHideControlsActivity.hideStartbutton = ( val.equals( "1" ) ? true : false );
         val = MenuActivity.gui_cfg.get( "GAME_PAD", "show_fps" );
         if( val != null )
             MenuSkinsGamepadActivity.showFPS = ( val.equals( "1" ) ? true : false );

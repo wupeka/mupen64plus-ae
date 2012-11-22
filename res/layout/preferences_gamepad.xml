@@ -24,9 +24,14 @@
 		android:defaultValue="0"
 		android:entries="@array/gamepad_analog_speed_list"
 		android:entryValues="@array/gamepad_analog_speed_value"
-		android:key="menuSettingsVideoAnalogSpeed"
+		android:key="menuSkinsGamepadAnalogSpeed"
 		android:summary="@string/gamepad_analog_refresh_rate"
 		android:title="@string/gamepad_analog_speed" />
+		
+	<Preference
+        android:key="menuSkinsGamepadHideControls"
+        android:summary="@string/gamepad_hide_virtual_buttons"
+        android:title="@string/gamepad_hide_controls" />
 
     <CheckBoxPreference
         android:defaultValue="false"

@@ -247,6 +247,13 @@ class Updater
         MenuActivity.gui_cfg.put( "VIDEO_PLUGIN", "enabled", "1" );
         MenuActivity.gui_cfg.put( "VIDEO_PLUGIN", "rgba8888", "0" );
 		MenuActivity.gui_cfg.put( "VIDEO_PLUGIN", "reverseLandscape", "0" );
+		
+		MenuActivity.gui_cfg.put( "VIDEO_PLUGIN", "hideCbuttons", "0" );
+		MenuActivity.gui_cfg.put( "VIDEO_PLUGIN", "hideABbuttons", "0" );
+		MenuActivity.gui_cfg.put( "VIDEO_PLUGIN", "hideRbutton", "0" );
+		MenuActivity.gui_cfg.put( "VIDEO_PLUGIN", "hideZbutton", "0" );
+		MenuActivity.gui_cfg.put( "VIDEO_PLUGIN", "hideStartbutton", "0" );
+		
         MenuActivity.gui_cfg.put( "KEYS", "disable_volume_keys", "0" );
         Globals.volumeKeysDisabled = false;
 

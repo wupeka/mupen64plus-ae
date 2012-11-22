@@ -80,6 +80,9 @@
         </activity>
         <activity android:name="paulscode.android.mupen64plusae.MenuSkinsGamepadChangeActivity"
                   android:label="@string/manifest_select_layout">
+		</activity>		  
+		<activity android:name="paulscode.android.mupen64plusae.MenuSkinsGamepadHideControlsActivity"
+                  android:label="@string/manifest_hide_controls_layout">
         </activity>
         <activity android:name="paulscode.android.mupen64plusae.MenuSkinsTouchpadActivity"
                   android:label="@string/manifest_touchpad_settings">

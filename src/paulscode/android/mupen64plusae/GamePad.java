@@ -89,6 +89,7 @@ public class GamePad extends View
     // normal N64 buttons and SDL buttons:
     private Image[] buttons = new Image[MAX_BUTTONS];
     private Image[] masks = new Image[MAX_BUTTONS];
+	private String[] buttonsName = new String[MAX_BUTTONS];
     private int[] xpercents = new int[MAX_BUTTONS];
     private int[] ypercents = new int[MAX_BUTTONS];
 
@@ -213,7 +214,16 @@ public class GamePad extends View
             }
             for( int x = 0; x < buttonCount; x++ )
             {  // Draw the buttons onto the canvas
-                buttons[x].draw( canvas );
+				if((buttonsName[x].equals( "BUTTON1" ) && MenuSkinsGamepadHideControlsActivity.hideCbuttons)
+				|| (buttonsName[x].equals( "BUTTON2" ) && MenuSkinsGamepadHideControlsActivity.hideABbuttons)
+				|| (buttonsName[x].equals( "BUTTON4" ) && MenuSkinsGamepadHideControlsActivity.hideRbutton)
+				|| (buttonsName[x].equals( "BUTTON5" ) && MenuSkinsGamepadHideControlsActivity.hideZbutton)
+				|| (buttonsName[x].equals( "BUTTON6" ) && MenuSkinsGamepadHideControlsActivity.hideStartbutton))
+				{}
+				else
+				{
+					buttons[x].draw( canvas );
+				}
             }
         }
         if( drawEverything || drawHat )
@@ -732,6 +742,7 @@ public class GamePad extends View
                                                               skin + "/" + filename + ".png" );
                             masks[buttonCount] = new Image( resources, Globals.DataDir + "/skins/gamepads/" +
                                                             skin + "/" + filename + ".bmp" );
+							buttonsName[buttonCount] = filename;
                             // Position (percentages of the screen dimensions):
                             xpercents[buttonCount] = Utility.toInt( section.get( "x" ), 0 );
                             ypercents[buttonCount] = Utility.toInt( section.get( "y" ), 0 );

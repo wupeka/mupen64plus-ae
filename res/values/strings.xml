@@ -30,6 +30,7 @@
     <string name="manifest_language">Select a language</string>
     <string name="manifest_skins">Skins(look and feel)</string>
     <string name="manifest_virtual_gamepad_settings">Virtual Gamepad Settings</string>
+	<string name="manifest_hide_controls_layout">Hide Controls</string>
     <string name="manifest_touchpad_settings">Xperia Play Touchpad Settings</string>
     <string name="manifest_select_layout">Select a layout</string>
     <string name="manifest_cheats">Cheats</string>
@@ -321,6 +322,15 @@
     <string name="gamepad_use_virt_gpad">Use the virtual gamepad</string>
     <string name="gamepad_import">Import…</string>
     <string name="gamepad_new_skin">Add new gamepad skin</string>
+	<string name="gamepad_hide_controls">Hide Controls</string>
+	<string name="gamepad_hide_virtual_buttons">Hide virtual buttons</string>
+	<string name="gamepad_hide_C">Hide C buttons</string>
+	<string name="gamepad_hide_AB">Hide A-B buttons</string>
+	<string name="gamepad_hide_R">Hide R button</string>
+	<string name="gamepad_hide_Z">Hide Z button</string>
+	<string name="gamepad_hide_Start">Hide Start button</string>
+	
+	
 
     <!-- Xperia Play Touchpad -->
     <string name="touchpad_change">Change</string>

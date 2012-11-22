@@ -92,6 +92,14 @@
             android:key="menuSettingsVideoConfigureHackZ"
             android:summary="@string/video_enble_fx_flshng_bckgrnd"
             android:title="@string/video_hack_z" />
+			
+		<ListPreference
+            android:defaultValue="0"
+            android:entries="@array/video_gles2n64_cpu_profile"
+            android:entryValues="@array/video_gles2n64_cpu_profile_values"
+            android:key="menuSettingsVideoConfigureProfile"
+            android:summary="@string/video_fix_fickering_shadows"
+            android:title="@string/video_gles2n64_cpu_profile" />
         
     </PreferenceCategory>
     

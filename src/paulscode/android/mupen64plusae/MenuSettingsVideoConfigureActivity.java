@@ -207,6 +207,18 @@ public class MenuSettingsVideoConfigureActivity extends PreferenceActivity imple
                 return true;
             }
         });
+		
+		// CPU Profile
+        final ListPreference settingsVideoCPUprofile = (ListPreference) findPreference( "menuSettingsVideoConfigureProfile" );
+        settingsVideoCPUprofile.setOnPreferenceChangeListener( new OnPreferenceChangeListener() {
+            
+            public boolean onPreferenceChange( Preference preference, Object newValue )
+            {   
+                Globals.hardwareType = Integer.parseInt( String.valueOf( newValue ) );
+                MenuActivity.gui_cfg.put( "VIDEO_PLUGIN", "hardware_type", String.valueOf( newValue ) );
+                return true;
+            }
+        });
     }
  
     public void optionChosen( String option )

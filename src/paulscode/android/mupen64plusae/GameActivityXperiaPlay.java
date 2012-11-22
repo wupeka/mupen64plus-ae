@@ -78,7 +78,8 @@ public class GameActivityXperiaPlay extends NativeActivity
         ///
 
         // paulscode, gather's information about the device, and chooses a hardware profile (used to customize settings)
-        GameActivityCommon.readCpuInfo();
+		if(Globals.hardwareType == 0)
+			GameActivityCommon.readCpuInfo();
 
         // paulscode, Xperia Play native input linkage
         for( int x = 0; x < 256; x++ )

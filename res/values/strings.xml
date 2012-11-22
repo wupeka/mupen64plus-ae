@@ -273,6 +273,8 @@
     <string name="video_enble_fx_flshng_bckgrnd">(enable to fix flashing background)</string>
     <string name="video_2xsai_texture_filter">2xSai Texture Filter</string>
     <string name="video_2xsai_texture_filter_summary">Enable/Disable the use of the 2xSai texture filter</string>
+	<string name="video_gles2n64_cpu_profile">CPU Profile</string>
+    <string name="video_fix_fickering_shadows">Fix flickering shadows</string>
     
     <!-- Array used to fill the frameskip ListPreference (do not translate this section) -->
     <string-array name="video_gles2n64_frameskip_numbers">
@@ -304,6 +306,24 @@
     <string-array name="gamepad_analog_speed_value">
         <item>0</item>
         <item>1</item>
+    </string-array>
+	
+	<!-- Array used to fill the cpu profile ListPreference (do not translate this section) -->
+	<string-array name="video_gles2n64_cpu_profile">
+        <item>Auto</item>
+        <item>OMAP</item>
+        <item>QUALCOMM</item>
+        <item>IMAP</item>
+        <item>TEGRA2</item>
+    </string-array>
+
+    <!-- Array to hold the values for the cpu profile ListPreference (do not translate this section) -->
+    <string-array name="video_gles2n64_cpu_profile_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
     </string-array>
     
     <!-- Virtual Gamepad -->

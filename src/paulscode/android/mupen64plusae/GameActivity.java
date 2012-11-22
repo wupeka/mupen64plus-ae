@@ -66,7 +66,8 @@ public class GameActivity extends Activity
         ///
 
         // paulscode, gather's information about the device, and chooses a hardware profile (used to customize settings)
-        GameActivityCommon.readCpuInfo();
+		if(Globals.hardwareType == 0)
+			GameActivityCommon.readCpuInfo();
 
         // paulscode, clears the virtual gamepad key states
         for( int x = 0; x < 30; x++ )
@@ -149,7 +150,10 @@ public class GameActivity extends Activity
             GameActivityCommon.rgba8888 = ( val.equals( "1" ) ? true : false );
 		val = MenuActivity.gui_cfg.get( "VIDEO_PLUGIN", "reverseLandscape" );
         if( val != null )
-            MenuSettingsVideoActivity.reverselandscape = ( val.equals( "1" ) ? true : false );
+			MenuSettingsVideoActivity.reverselandscape = ( val.equals( "1" ) ? true : false );
+		val = MenuActivity.gui_cfg.get( "VIDEO_PLUGIN", "hardware_type" );
+        if( val != null )
+            Globals.hardwareType = Integer.parseInt( String.valueOf( val ) );
          
         // Look up any special codes for the analog controls
         if( Globals.analog_100_64 )

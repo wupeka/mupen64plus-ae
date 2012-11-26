@@ -275,6 +275,8 @@
     <string name="video_2xsai_texture_filter_summary">Enable/Disable the use of the 2xSai texture filter</string>
 	<string name="video_gles2n64_cpu_profile">CPU Profile</string>
     <string name="video_fix_fickering_shadows">Fix flickering shadows</string>
+	<string name="video_framelimiter">Framelimiter</string>
+	<string name="video_use_framelimiter">Use Framelimiter</string>
     
     <!-- Array used to fill the frameskip ListPreference (do not translate this section) -->
     <string-array name="video_gles2n64_frameskip_numbers">

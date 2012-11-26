@@ -247,6 +247,7 @@ class Updater
         MenuActivity.gui_cfg.put( "VIDEO_PLUGIN", "enabled", "1" );
         MenuActivity.gui_cfg.put( "VIDEO_PLUGIN", "rgba8888", "0" );
 		MenuActivity.gui_cfg.put( "VIDEO_PLUGIN", "reverseLandscape", "0" );
+		MenuActivity.gui_cfg.put( "VIDEO_PLUGIN", "framelimiter", "1" );
 		MenuActivity.gui_cfg.put( "VIDEO_PLUGIN", "hardware_type", "0" );
 		MenuActivity.gui_cfg.put( "VIDEO_PLUGIN", "hideCbuttons", "0" );
 		MenuActivity.gui_cfg.put( "VIDEO_PLUGIN", "hideABbuttons", "0" );

@@ -151,6 +151,9 @@ public class GameActivity extends Activity
 		val = MenuActivity.gui_cfg.get( "VIDEO_PLUGIN", "reverseLandscape" );
         if( val != null )
 			MenuSettingsVideoActivity.reverselandscape = ( val.equals( "1" ) ? true : false );
+		val = MenuActivity.gui_cfg.get( "VIDEO_PLUGIN", "framelimiter" );
+        if( val != null )
+			MenuSettingsVideoActivity.framelimiter = ( val.equals( "1" ) ? true : false );
 		val = MenuActivity.gui_cfg.get( "VIDEO_PLUGIN", "hardware_type" );
         if( val != null )
             Globals.hardwareType = Integer.parseInt( String.valueOf( val ) );

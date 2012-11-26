@@ -434,6 +434,14 @@ public class GameActivityCommon
             return (Object) ".";
         return (Object) Globals.extraArgs;
     }
+	
+	public static Object getFramelimiter()
+    {
+        if( MenuSettingsVideoActivity.framelimiter )
+            return (Object) ".";
+		else
+			return (Object) "--nospeedlimit";
+    }
 
     public static void saveSession()
     {

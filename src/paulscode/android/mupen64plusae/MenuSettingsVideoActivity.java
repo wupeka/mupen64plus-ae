@@ -15,6 +15,7 @@ public class MenuSettingsVideoActivity extends PreferenceActivity implements IOp
     public static String currentPlugin = "(none)";
     public static boolean rgba8888 = false;
 	public static boolean reverselandscape = false;
+	public static boolean framelimiter = true;
 
     @Override
     public void onCreate( Bundle savedInstanceState )
@@ -105,6 +106,18 @@ public class MenuSettingsVideoActivity extends PreferenceActivity implements IOp
 				}
 			});
 		}
+		
+		// Framelimiter
+        final CheckBoxPreference settingsVideoFramelimiter = (CheckBoxPreference) findPreference( "menuSettingsVideoFramelimiter" );
+        settingsVideoFramelimiter.setOnPreferenceClickListener( new OnPreferenceClickListener() {
+            
+            public boolean onPreferenceClick( Preference preference )
+            {
+                framelimiter = !framelimiter;
+                MenuActivity.gui_cfg.put( "VIDEO_PLUGIN", "framelimiter", (settingsVideoFramelimiter.isChecked() ? "1" : "0") );
+                return true;
+            }
+        });
         
         // Enable Plugin Setting
         final CheckBoxPreference settingsVideoEnabled = (CheckBoxPreference) findPreference( "menuSettingsVideoEnabled" );

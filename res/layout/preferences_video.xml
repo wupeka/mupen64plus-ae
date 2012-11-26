@@ -24,6 +24,12 @@
         android:key="menuSettingsVideoReverseLandscape"
         android:summary="@string/video_reverse_screen_orientation"
         android:title="@string/video_reverse_landscape_mode" />
+		
+	<CheckBoxPreference
+        android:defaultValue="true"
+        android:key="menuSettingsVideoFramelimiter"
+        android:summary="@string/video_use_framelimiter"
+        android:title="@string/video_framelimiter" />
     
     <CheckBoxPreference
         android:defaultValue="true"

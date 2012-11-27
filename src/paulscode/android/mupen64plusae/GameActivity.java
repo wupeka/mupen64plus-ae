@@ -333,8 +333,9 @@ public class GameActivity extends Activity
     }
 
     @Override
-    protected void onPause()
+    protected void onPause() // This executes when receiving a phone call or entering sleep mode
     {
+		GameActivityCommon.saveSession();  // Workaround, allows us to force-close later
         super.onPause();
     }
     

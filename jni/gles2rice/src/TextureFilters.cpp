@@ -973,7 +973,7 @@ int GetImageInfoFromFile(char* pSrcFile, IMAGE_INFO *pSrcInfo)
     }
     else if(sig[0] == 137 && sig[1] == 'P' && sig[2] == 'N' && sig[3] == 'G' && sig[4] == '\r' && sig[5] == '\n' &&
                sig[6] == 26 && sig[7] == '\n') // PNG
-    	{
+        {
         struct BMGImageStruct img;
         memset(&img, 0, sizeof(BMGImageStruct));
         BMG_Error code = ReadPNG(pSrcFile, &img);
@@ -982,17 +982,17 @@ int GetImageInfoFromFile(char* pSrcFile, IMAGE_INFO *pSrcInfo)
             pSrcInfo->Width = img.width;
             pSrcInfo->Height = img.height;
             pSrcInfo->Depth = img.bits_per_pixel;
-			pSrcInfo->MipLevels = 1;
+            pSrcInfo->MipLevels = 1;
             if(img.bits_per_pixel == 32)
-				pSrcInfo->Format = SURFFMT_A8R8G8B8;
+                pSrcInfo->Format = SURFFMT_A8R8G8B8;
             else if(img.bits_per_pixel == 8)
-				pSrcInfo->Format = SURFFMT_P8;
+                pSrcInfo->Format = SURFFMT_P8;
             // Resource and File Format ignored
             FreeBMGImage(&img);
-			return 0;
-    	}
+            return 0;
+        }
         DebugMessage(M64MSG_ERROR, "Couldn't read PNG file '%s'; error = %i", pSrcFile, code);
-    	return 1;
+        return 1;
     }
 
     DebugMessage(M64MSG_ERROR, "GetImageInfoFromFile : unknown file format (%s)", pSrcFile);
@@ -1012,7 +1012,7 @@ BOOL PathFileExists(char* pszPath)
 }
 
 /********************************************************************************************************************
- * Truncates the current list with information about hires textures and scans the hires folder for hires textures and 
+ * Truncates the current list with information about hires textures and scans the hires folder for hires textures and
  * creates a list with records of properties of the hires textures.
  * parameter:
  * foldername: the folder that should be scaned for valid hires textures.
@@ -1022,10 +1022,10 @@ BOOL PathFileExists(char* pszPath)
  * bRecursive: flag that indicates if also subfolders should be scanned for hires textures
  * bCacheTextures: flag that indicates if the identified hires textures should also be cached
  * bMainFolder: indicates if the folder is the main folder that will be scanned. That way, texture counting does not
- *              start at 1 each time a subfolder is accessed. (microdev: I know that is not important but it really 
+ *              start at 1 each time a subfolder is accessed. (microdev: I know that is not important but it really
  *              bugged me ;-))
  * return:
- * infos: the list with the records of the identified hires textures. Be aware that these records also contains the 
+ * infos: the list with the records of the identified hires textures. Be aware that these records also contains the
  *        actual textures if caching is enabled.
  ********************************************************************************************************************/
 void FindAllTexturesFromFolder(char *foldername, CSortedList<uint64,ExtTxtrInfo> &infos, bool extraCheck, bool bRecursive)
@@ -1052,11 +1052,11 @@ void FindAllTexturesFromFolder(char *foldername, CSortedList<uint64,ExtTxtrInfo>
     do
     {
         foundfilename = osal_search_dir_read_next(dir);
-        
+
         // The array is empty,  break the current operation
         if (foundfilename == NULL)
             break;
-        // The current file is a hidden one 
+        // The current file is a hidden one
         if (foundfilename[0] == '.' )
             // These files we don't need
             continue;
@@ -1143,7 +1143,7 @@ void FindAllTexturesFromFolder(char *foldername, CSortedList<uint64,ExtTxtrInfo>
                 DebugMessage(M64MSG_WARNING, "Cannot get image info for file: %s", foundfilename);
                 continue;
             }
-            
+
             // Store type to the record
             type = RGB_PNG;
 
@@ -1183,7 +1183,7 @@ void FindAllTexturesFromFolder(char *foldername, CSortedList<uint64,ExtTxtrInfo>
                 // Nope, continue with next file
                 continue;
             }
-            
+
             // Indicate file type
             type = RGB_WITH_ALPHA_TOGETHER_PNG;
         }
@@ -1191,7 +1191,7 @@ void FindAllTexturesFromFolder(char *foldername, CSortedList<uint64,ExtTxtrInfo>
         // If a known texture format has been detected...
         if( type != NO_TEXTURE )
         {
-        /* 
+        /*
             Try to read image information here.
 
             (CASTLEVANIA2)#(58E2333F)#(2)#(0)#(D7A5C6D9)_ciByRGBA.png
@@ -1205,7 +1205,7 @@ void FindAllTexturesFromFolder(char *foldername, CSortedList<uint64,ExtTxtrInfo>
 
             <internal Rom name>#<DRAM CRC>#<24bit>#<RGBA>#<PAL CRC>_ciByRGBA.png
             */
-            
+
             // Get the actual file name
             strcpy(texturefilename, foundfilename);
             // Place the pointer before the DRAM-CRC (first occurrence of '#')
@@ -1254,7 +1254,7 @@ void FindAllTexturesFromFolder(char *foldername, CSortedList<uint64,ExtTxtrInfo>
 
             if( foundIdx < 0 || type != infos[foundIdx].type)
             {
-                // Create a new entry 
+                // Create a new entry
                 ExtTxtrInfo newinfo;
                 // Store the width
                 newinfo.width = imgInfo.Width;
@@ -1277,7 +1277,7 @@ void FindAllTexturesFromFolder(char *foldername, CSortedList<uint64,ExtTxtrInfo>
                 //Indicate if there is a separate alpha file that has to be loaded
                 newinfo.bSeparatedAlpha = bSeparatedAlpha;
                 // Determine the begin of the string indicating the texture and corresponding the apha type (if any)
-                // That assures that if there would be a non-supported type, RGBNameTail & AlphaNameTail would at 
+                // That assures that if there would be a non-supported type, RGBNameTail & AlphaNameTail would at
                 // least be NULL
                 newinfo.RGBNameTail[0] = newinfo.AlphaNameTail[0] = 0;
 
@@ -1310,7 +1310,7 @@ void FindAllTexturesFromFolder(char *foldername, CSortedList<uint64,ExtTxtrInfo>
                 uint64 crc64 = newinfo.crc32;
                 crc64 <<= 32;
                 crc64 |= (newinfo.pal_crc32&0xFFFFFF00)|(newinfo.fmt<<4)|newinfo.siz;
-                // Add the new record to the list 
+                // Add the new record to the list
                 infos.add(crc64,newinfo);
             }
         }
@@ -1323,7 +1323,7 @@ void FindAllTexturesFromFolder(char *foldername, CSortedList<uint64,ExtTxtrInfo>
  * parameter:
  * pathname: the name of the folder that should be checked or created if not existant
  * return:
- * return value: flag that indicates true if the folder is existant or could be created. If none was the case, 
+ * return value: flag that indicates true if the folder is existant or could be created. If none was the case,
  *               false will be returned
  ********************************************************************************************************************/
 
@@ -1407,9 +1407,9 @@ void FindAllDumpedTextures(void)
 }
 
 /********************************************************************************************************************
- * Truncates the current list with information about hires textures and scans the hires folder for hires textures and 
+ * Truncates the current list with information about hires textures and scans the hires folder for hires textures and
  * creates a list with records of properties of the hires textures.
- * parameter: 
+ * parameter:
  * none
  * return:
  * none
@@ -1428,7 +1428,7 @@ void FindAllHiResTextures(void)
     // It does not exist? => Create it
     CheckAndCreateFolder(foldername);
 
-    // Add the path to a sub-folder corresponding to the rom name 
+    // Add the path to a sub-folder corresponding to the rom name
     // HOOK IN: PACK SELECT
     strcat(foldername,(const char*)g_curRomInfo.szGameName);
     strcat(foldername, OSAL_DIR_SEPARATOR_STR);
@@ -1479,8 +1479,8 @@ void CloseExternalTextures(void)
  * Scans the hires folder for hires textures and creates a list with records of properties of the hires textures.
  * in case of enabled hires caching also the actual hires textures will be added to the record. Before textures will
  * be loaded, existing list of texture information will be truncated.
- * parameter: 
- * bWIPFolder: Indicates if all textures should be inited or just the WIP folder. Just the content of the WIP folder 
+ * parameter:
+ * bWIPFolder: Indicates if all textures should be inited or just the WIP folder. Just the content of the WIP folder
  *             will be reloaded if a savestate has been loaded or if there has been a switch between window and full-
  *             screen mode. (Not implemented yet)
  * return:
@@ -1504,9 +1504,9 @@ if( options.bDumpTexturesToFiles )
     }
 }
 /********************************************************************************************************************
- * Inits the hires textures. For doing so, all hires textures info & the cached textures (for dumping and the hires ones) 
+ * Inits the hires textures. For doing so, all hires textures info & the cached textures (for dumping and the hires ones)
  * are deleted. Afterwards they are reloaded from file system. This only takes place if a new rom has been loaded.
- * parameter: 
+ * parameter:
  * none
  * return:
  * none
@@ -1523,16 +1523,16 @@ void InitExternalTextures(void)
 }
 
 /********************************************************************************************************************
- * Determines the scale factor for resizing the original texture to the hires replacement. The scale factor is a left 
- * shift. That means scale factor 1 = size(original texture)*2= size(hires texture), 
- * factor 2 = size(original texture)*4= size(hires texture), etc. (I'm not yet sure why it has to be 2^x. Most probably 
+ * Determines the scale factor for resizing the original texture to the hires replacement. The scale factor is a left
+ * shift. That means scale factor 1 = size(original texture)*2= size(hires texture),
+ * factor 2 = size(original texture)*4= size(hires texture), etc. (I'm not yet sure why it has to be 2^x. Most probably
  * because of block size. Has to be further determined.
- * parameter: 
+ * parameter:
  * info: the record describing the external texture
  * entry: the original texture in the texture cache
  * return:
  * info.scaleShift: the value for left shift the original texture size to the corresponding hires texture size
- * return value: the value for left shift the original texture size to the corresponding hires texture size. 
+ * return value: the value for left shift the original texture size to the corresponding hires texture size.
  *               The function returns -1 if the dimensions of the hires texture are not a power of two of the
  *               original texture.
  ********************************************************************************************************************/
@@ -1562,11 +1562,11 @@ int FindScaleFactor(const ExtTxtrInfo &info, TxtrCacheEntry &entry)
 
 /********************************************************************************************************************
  * Checks if a hires replacement for a texture is available.
- * parameter: 
+ * parameter:
  * infos: The list of external textures
  * entry: the original texture in the texture cache
  * return:
- * indexa: returns the index in "infos" where a hires replacement for a texture without 
+ * indexa: returns the index in "infos" where a hires replacement for a texture without
  *         palette crc or a RGBA_PNG_FOR_ALL_CI texture has been found
  * return value: the index in "infos" where the corresponding hires texture has been found
  ********************************************************************************************************************/
@@ -1603,13 +1603,13 @@ int CheckTextureInfos( CSortedList<uint64,ExtTxtrInfo> &infos, TxtrCacheEntry &e
         indexb = infos.find(crc64b);    // For CI or PNG with pal CRC
 
     // did not found the ext. text.
-	if( indexa >= infosize )	
-		indexa = -1;
+    if( indexa >= infosize )
+        indexa = -1;
     // did not found the ext. text. w/ sep. alpha channel
-	if( indexb >= infosize )	
-		indexb = -1;
+    if( indexb >= infosize )
+        indexb = -1;
 
-	scaleShift = -1;
+    scaleShift = -1;
 
     // found texture with sep. alpha channel
 
@@ -1628,8 +1628,8 @@ int CheckTextureInfos( CSortedList<uint64,ExtTxtrInfo> &infos, TxtrCacheEntry &e
         return -1;
 
     // texture has no separate alpha channel, try to find it in the ext. text. list
-	if( indexa >= 0 )	
-		scaleShift = FindScaleFactor(infos[indexa], entry);
+    if( indexa >= 0 )
+        scaleShift = FindScaleFactor(infos[indexa], entry);
     // ok. the scale factor is supported. A valid replacement has been found
     // this is a texture without ext. alpha channel
 

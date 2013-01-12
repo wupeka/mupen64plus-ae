@@ -373,7 +373,7 @@ static bool StartVideo(void)
           const float ratio = ( romPAL ? 9.0f/11.0f : 0.75f );
           int screenWidth = videoInfo->current_w;
           int screenHeight = videoInfo->current_h;
- 
+
           int videoWidth = screenWidth;
           int videoHeight = screenHeight;
 
@@ -397,7 +397,7 @@ static bool StartVideo(void)
         windowSetting.width = videoWidth;
         windowSetting.height = videoHeight;
         windowSetting.xpos = x;
-        windowSetting.ypos = y;        
+        windowSetting.ypos = y;
         ConfigSetDefaultInt( l_ConfigVideoGeneral, "ScreenWidth", videoWidth, "Width of output window or fullscreen width" );
         ConfigSetDefaultInt( l_ConfigVideoGeneral, "ScreenHeight", videoHeight, "Height of output window or fullscreen height" );
 
